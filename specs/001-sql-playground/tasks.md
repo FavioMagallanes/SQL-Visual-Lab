@@ -19,11 +19,11 @@
 
 **Purpose**: Install dependencies, copy WASM binary, create project structure
 
-- [ ] T001 Install new dependencies: `pnpm add zustand sql.js framer-motion`
-- [ ] T002 Copy sql.js WASM binary to public directory: `public/sql-wasm.wasm`
-- [ ] T003 Add postinstall script to `package.json` for WASM binary copy
-- [ ] T004 [P] Create feature directory structure under `src/features/` (sql-engine, editor, visualizer, ai-assistant) and `src/shared/`
-- [ ] T005 [P] Configure path alias `@/*` in `tsconfig.json` to include `src/` if needed
+- [x] T001 Install new dependencies: `pnpm add zustand sql.js framer-motion`
+- [x] T002 Copy sql.js WASM binary to public directory: `public/sql-wasm.wasm`
+- [x] T003 Add postinstall script to `package.json` for WASM binary copy
+- [x] T004 [P] Create feature directory structure under `src/features/` (sql-engine, editor, visualizer, ai-assistant) and `src/shared/`
+- [x] T005 [P] Configure path alias `@/*` in `tsconfig.json` to include `src/` if needed
 
 ---
 
@@ -33,15 +33,15 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 Define shared TypeScript types (QueryResult, QueryType, DatabaseState) in `src/features/sql-engine/types/index.ts`
-- [ ] T007 Implement query parser (detect SELECT/INSERT/UPDATE/DELETE/JOIN, block DROP/ALTER) in `src/features/sql-engine/lib/query-parser.ts`
-- [ ] T008 Implement seed data with characters, teams, and fan_clubs tables in `src/features/sql-engine/lib/seed-data.ts`
-- [ ] T009 Implement database manager (sql.js init, execute, reset, destroy lifecycle) in `src/features/sql-engine/lib/database-manager.ts`
-- [ ] T010 Implement Zustand SQL store (state, actions, module-level DB ref) in `src/features/sql-engine/store/sql-store.ts`
-- [ ] T011 Implement `useSqlDatabase` hook (init on mount, cleanup on unmount) in `src/features/sql-engine/hooks/use-sql-database.ts`
-- [ ] T012 Implement `useQueryExecutor` hook (debounced execution via store) in `src/features/sql-engine/hooks/use-query-executor.ts`
-- [ ] T013 [P] Create two-panel layout shell component in `src/shared/components/app-layout.tsx`
-- [ ] T014 [P] Create shared types in `src/shared/types/index.ts`
+- [x] T006 Define shared TypeScript types (QueryResult, QueryType, DatabaseState) in `src/features/sql-engine/types/index.ts`
+- [x] T007 Implement query parser (detect SELECT/INSERT/UPDATE/DELETE/JOIN, block DROP/ALTER) in `src/features/sql-engine/lib/query-parser.ts`
+- [x] T008 Implement seed data with characters, teams, and fan_clubs tables in `src/features/sql-engine/lib/seed-data.ts`
+- [x] T009 Implement database manager (sql.js init, execute, reset, destroy lifecycle) in `src/features/sql-engine/lib/database-manager.ts`
+- [x] T010 Implement Zustand SQL store (state, actions, module-level DB ref) in `src/features/sql-engine/store/sql-store.ts`
+- [x] T011 Implement `useSqlDatabase` hook (init on mount, cleanup on unmount) in `src/features/sql-engine/hooks/use-sql-database.ts`
+- [x] T012 Implement `useQueryExecutor` hook (debounced execution via store) in `src/features/sql-engine/hooks/use-query-executor.ts`
+- [x] T013 [P] Create two-panel layout shell component in `src/shared/components/app-layout.tsx`
+- [x] T014 [P] Create shared types in `src/shared/types/index.ts`
 
 **Checkpoint**: SQL engine fully functional — can init DB, execute queries, get results, reset, and destroy. Layout shell ready.
 
@@ -55,14 +55,14 @@
 
 ### Implementation for User Story 1
 
-- [ ] T015 [P] [US1] Define editor types in `src/features/editor/types/index.ts`
-- [ ] T016 [P] [US1] Define visualizer types in `src/features/visualizer/types/index.ts`
-- [ ] T017 [US1] Implement `useDebouncedQuery` hook (watch input, 300ms debounce, trigger executeQuery) in `src/features/editor/hooks/use-debounced-query.ts`
-- [ ] T018 [US1] Create SQL editor component (textarea with default query pre-filled) in `src/features/editor/components/sql-editor.tsx`
-- [ ] T019 [US1] Create results table component (dynamic columns/rows from QueryResult) in `src/features/visualizer/components/results-table.tsx`
-- [ ] T020 [US1] Create reset database button component in `src/shared/components/reset-database-button.tsx`
-- [ ] T021 [US1] Compose main page: init DB, wire editor → store → table in `app/page.tsx`
-- [ ] T022 [US1] Add error display for SQL syntax errors (inline, user-friendly) in `app/page.tsx`
+- [x] T015 [P] [US1] Define editor types in `src/features/editor/types/index.ts`
+- [x] T016 [P] [US1] Define visualizer types in `src/features/visualizer/types/index.ts`
+- [x] T017 [US1] Implement `useDebouncedQuery` hook (watch input, 300ms debounce, trigger executeQuery) in `src/features/editor/hooks/use-debounced-query.ts`
+- [x] T018 [US1] Create SQL editor component (textarea with default query pre-filled) in `src/features/editor/components/sql-editor.tsx`
+- [x] T019 [US1] Create results table component (dynamic columns/rows from QueryResult) in `src/features/visualizer/components/results-table.tsx`
+- [x] T020 [US1] Create reset database button component in `src/shared/components/reset-database-button.tsx`
+- [x] T021 [US1] Compose main page: init DB, wire editor → store → table in `app/page.tsx`
+- [x] T022 [US1] Add error display for SQL syntax errors (inline, user-friendly) in `app/page.tsx`
 
 **Checkpoint**: MVP complete — user sees data on load, edits query, results update live, errors shown, reset button works.
 
@@ -76,12 +76,12 @@
 
 ### Implementation for User Story 2
 
-- [ ] T023 [P] [US2] Implement `useAnimationConfig` hook (map QueryType → Framer Motion variants) in `src/features/visualizer/hooks/use-animation-config.ts`
-- [ ] T024 [US2] Create animated row component with `AnimatePresence` exit animation (fade-out for DELETE) in `src/features/visualizer/components/animated-row.tsx`
-- [ ] T025 [US2] Create column highlight component (color blocks for JOIN, emphasis for SELECT) in `src/features/visualizer/components/column-highlight.tsx`
-- [ ] T026 [US2] Integrate animated rows into results table, replacing static rows in `src/features/visualizer/components/results-table.tsx`
-- [ ] T027 [US2] Add previousResults tracking to SQL store for diff-based animations in `src/features/sql-engine/store/sql-store.ts`
-- [ ] T028 [US2] Add source-table metadata detection for JOIN column coloring in `src/features/sql-engine/lib/query-parser.ts`
+- [x] T023 [P] [US2] Implement `useAnimationConfig` hook (map QueryType → Framer Motion variants) in `src/features/visualizer/hooks/use-animation-config.ts`
+- [x] T024 [US2] Create animated row component with `AnimatePresence` exit animation (fade-out for DELETE) in `src/features/visualizer/components/animated-row.tsx`
+- [x] T025 [US2] Create column highlight component (color blocks for JOIN, emphasis for SELECT) in `src/features/visualizer/components/column-highlight.tsx`
+- [x] T026 [US2] Integrate animated rows into results table, replacing static rows in `src/features/visualizer/components/results-table.tsx`
+- [x] T027 [US2] Add previousResults tracking to SQL store for diff-based animations in `src/features/sql-engine/store/sql-store.ts`
+- [x] T028 [US2] Add source-table metadata detection for JOIN column coloring in `src/features/sql-engine/lib/query-parser.ts`
 
 **Checkpoint**: All three animation types working — DELETE fade-out, JOIN color blocks, SELECT column highlight. Previous stories still functional.
 
@@ -95,14 +95,14 @@
 
 ### Implementation for User Story 3
 
-- [ ] T029 [P] [US3] Define AI assistant types (ExplainRequest, ExplainResponse, ExplanationState) in `src/features/ai-assistant/types/index.ts`
-- [ ] T030 [US3] Implement AI explanation API route (system prompt in Spanish, proxy to AI service) in `app/api/explain/route.ts`
-- [ ] T031 [US3] Implement explanation service (construct prompt, call API route) in `src/features/ai-assistant/lib/explanation-service.ts`
-- [ ] T032 [US3] Implement `useQueryExplanation` hook (fetch explanation, loading/error state) in `src/features/ai-assistant/hooks/use-query-explanation.ts`
-- [ ] T033 [US3] Create "The Human Button" component (trigger button with loading state) in `src/features/ai-assistant/components/human-button.tsx`
-- [ ] T034 [US3] Create collapsible explanation panel component (display AI response with typography) in `src/features/ai-assistant/components/explanation-panel.tsx`
-- [ ] T035 [US3] Integrate AI assistant into main page layout (below editor, collapsible) in `app/page.tsx`
-- [ ] T036 [US3] Add `.env.local` with `OPENAI_API_KEY` placeholder and update `.env.example`
+- [x] T029 [P] [US3] Define AI assistant types (ExplainRequest, ExplainResponse, ExplanationState) in `src/features/ai-assistant/types/index.ts`
+- [x] T030 [US3] Implement AI explanation API route (system prompt in Spanish, proxy to AI service) in `app/api/explain/route.ts`
+- [x] T031 [US3] Implement explanation service (construct prompt, call API route) in `src/features/ai-assistant/lib/explanation-service.ts`
+- [x] T032 [US3] Implement `useQueryExplanation` hook (fetch explanation, loading/error state) in `src/features/ai-assistant/hooks/use-query-explanation.ts`
+- [x] T033 [US3] Create "The Human Button" component (trigger button with loading state) in `src/features/ai-assistant/components/human-button.tsx`
+- [x] T034 [US3] Create collapsible explanation panel component (display AI response with typography) in `src/features/ai-assistant/components/explanation-panel.tsx`
+- [x] T035 [US3] Integrate AI assistant into main page layout (below editor, collapsible) in `app/page.tsx`
+- [x] T036 [US3] Add `.env.local` with `OPENAI_API_KEY` placeholder and update `.env.example`
 
 **Checkpoint**: "The Human Button" works end-to-end — explanations in Spanish, error handling, loading states, fallback message when service unavailable.
 
@@ -112,12 +112,12 @@
 
 **Purpose**: Final improvements affecting multiple user stories
 
-- [ ] T037 [P] Add responsive adjustments for the two-panel layout in `src/shared/components/app-layout.tsx`
-- [ ] T038 [P] Add result row cap (max 100 rows displayed) with message in `src/features/visualizer/components/results-table.tsx`
-- [ ] T039 [P] Add keyboard shortcut (Ctrl+Enter) for manual query execution in `src/features/editor/components/sql-editor.tsx`
-- [ ] T040 Add empty state and "no results" visual feedback in `src/features/visualizer/components/results-table.tsx`
-- [ ] T041 Run quickstart.md validation — verify full setup and all features work
-- [ ] T042 Final code cleanup: verify no `any`, no `forwardRef`, all `export const`, kebab-case files
+- [x] T037 [P] Add responsive adjustments for the two-panel layout in `src/shared/components/app-layout.tsx`
+- [x] T038 [P] Add result row cap (max 100 rows displayed) with message in `src/features/visualizer/components/results-table.tsx`
+- [x] T039 [P] Add keyboard shortcut (Ctrl+Enter) for manual query execution in `src/features/editor/components/sql-editor.tsx`
+- [x] T040 Add empty state and "no results" visual feedback in `src/features/visualizer/components/results-table.tsx`
+- [x] T041 Run quickstart.md validation — verify full setup and all features work
+- [x] T042 Final code cleanup: verify no `any`, no `forwardRef`, all `export const`, kebab-case files
 
 ---
 
