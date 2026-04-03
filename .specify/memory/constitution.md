@@ -1,50 +1,62 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# SQL Visual Lab Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Code Quality
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Apply Clean Code and S.O.L.I.D. principles when they add value. Over-engineering is strictly prohibited. Focus on maintainable, readable, and purposeful code that solves real problems without unnecessary complexity.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Architecture (NON-NEGOTIABLE)
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Implement "Screaming Architecture" with feature-based organization. The project structure should immediately reveal what the application does. Group related functionality by features, not by technical layers.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Naming Conventions
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+All code must be in English (functions, constants, variables). File names must use kebab-case. No exceptions - consistency is key for maintainability and team collaboration.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. React/JavaScript Syntax
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Prioritize arrow functions and always use 'export const' for exports. The use of 'forwardRef' is strictly prohibited. Modern functional programming patterns are preferred over class-based approaches.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+### V. Single Responsibility
+
+Components, functions, and custom hooks must have a single responsibility. Components should be purely presentational by default. Business logic should be separated into custom hooks or utility functions.
+
+## Development Standards
+
+### TypeScript Requirements
+
+Mandatory use of TypeScript with strong typing. The use of 'any' type is strictly prohibited. All interfaces, types, and function signatures must be explicitly defined.
+
+### Tooling and MCPs
+
+- For library installation and documentation queries: Use Context7 MCP exclusively
+- For UI components: Use ShadCN MCP exclusively
+- No manual installation or documentation lookup outside these tools
+
+### Code Style and Formatting
+
+Configure ESLint and Prettier with import sorting enabled. Include Tailwind CSS typography plugin. Follow UX/UI best practices for user experience and interface design.
+
+## Quality Gates
+
+### Git Workflow
+
+Commits must be short, in English, and follow Conventional Commits standard. Examples:
+
+- feat: add sql query builder
+- fix: resolve connection timeout
+- chore: update dependencies
+- docs: add api documentation
+
+### Testing Policy
+
+Testing is prohibited unless explicitly requested. Focus development time on feature delivery and code quality rather than test coverage.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other development practices and guidelines. All code reviews and pull requests must verify compliance with these principles.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+Complexity must be justified and documented. When in doubt, choose simplicity over sophistication.
+
+**Version**: 1.0.0 | **Ratified**: April 3, 2026 | **Last Amended**: April 3, 2026
